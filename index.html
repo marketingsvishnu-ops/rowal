@@ -1,232 +1,260 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sports Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>CricketLive — Live Cricket Scores & Sports News</title>
 
-    body {
-      background: #f4f6f8;
-      color: #222;
-    }
+<meta name="description"
+content="Live cricket scores, match updates, fixtures, results, cricket news, points tables and sports updates.">
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+<style>
+:root {
+    --bg: #f4f7fb;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #687386;
+    --primary: #0b7a45;
+    --primary-dark: #075b34;
+    --border: #e2e7ef;
+    --danger: #d62828;
+    --gold: #f4b400;
+}
 
-    header h1 {
-      color: #22c55e;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
 
-    nav a:hover {
-      color: #22c55e;
-    }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #16a34a, #111827);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
+.container {
+    width: min(1200px, 94%);
+    margin: auto;
+}
 
-    .hero h2 {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
+/* HEADER */
 
-    .hero p {
-      font-size: 18px;
-    }
+header {
+    background: var(--primary);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 12px rgba(0,0,0,.12);
+}
 
-    .container {
-      width: 85%;
-      max-width: 1100px;
-      margin: 40px auto;
-    }
+.topbar {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 30px;
-    }
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    white-space: nowrap;
+}
 
-    .sports-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
+.logo span {
+    color: #ffd447;
+}
 
-    .sport-card {
-      background: white;
-      padding: 30px;
-      text-align: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
-    .sport-card:hover {
-      transform: translateY(-5px);
-    }
+nav a {
+    font-size: 14px;
+    font-weight: 600;
+}
 
-    .sport-icon {
-      font-size: 50px;
-      margin-bottom: 15px;
-    }
+nav a:hover {
+    color: #ffd447;
+}
 
-    .matches {
-      margin-top: 50px;
-    }
+.menu-btn {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
 
-    .match {
-      background: white;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
+/* TICKER */
 
-    .team {
-      font-weight: bold;
-    }
+.ticker {
+    background: #111827;
+    color: white;
+    overflow: hidden;
+}
 
-    .time {
-      color: #16a34a;
-      font-weight: bold;
-    }
+.ticker-inner {
+    display: flex;
+    align-items: center;
+    min-height: 38px;
+    gap: 15px;
+}
 
-    footer {
-      margin-top: 50px;
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
+.ticker-label {
+    background: var(--danger);
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
 
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
+.ticker-text {
+    white-space: nowrap;
+    animation: ticker 25s linear infinite;
+}
 
-      nav a {
-        margin: 0 8px;
-      }
+@keyframes ticker {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
 
-      .hero h2 {
-        font-size: 32px;
-      }
+/* HERO */
 
-      .match {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
-</head>
+.hero {
+    padding: 35px 0 20px;
+}
 
-<body>
+.hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
 
-  <header>
-    <h1>⚽ Sports Hub</h1>
+.hero-main {
+    min-height: 300px;
+    border-radius: 18px;
+    padding: 35px;
+    color: white;
+    display: flex;
+    align-items: end;
+    background:
+        linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.8)),
+        linear-gradient(135deg, #086f3d, #111827);
+}
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#sports">Sports</a>
-      <a href="#matches">Matches</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+.hero-main h1 {
+    font-size: clamp(30px, 5vw, 50px);
+    margin-bottom: 10px;
+}
 
-  <section class="hero">
-    <h2>Welcome to Sports Hub</h2>
-    <p>Stay updated with your favorite sports and matches.</p>
-  </section>
+.hero-main p {
+    color: #e5e7eb;
+}
 
-  <main class="container">
+.hero-side {
+    display: grid;
+    gap: 15px;
+}
 
-    <section id="sports">
-      <h2 class="section-title">Popular Sports</h2>
+.mini-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 20px;
+}
 
-      <div class="sports-grid">
+.mini-card small {
+    color: var(--muted);
+}
 
-        <div class="sport-card">
-          <div class="sport-icon">⚽</div>
-          <h3>Football</h3>
-          <p>Latest football matches and news.</p>
-        </div>
+.mini-card h3 {
+    margin-top: 5px;
+}
 
-        <div class="sport-card">
-          <div class="sport-icon">🏏</div>
-          <h3>Cricket</h3>
-          <p>Scores, teams and upcoming games.</p>
-        </div>
+/* SECTION */
 
-        <div class="sport-card">
-          <div class="sport-icon">🏀</div>
-          <h3>Basketball</h3>
-          <p>Follow basketball action worldwide.</p>
-        </div>
+.section {
+    padding: 20px 0;
+}
 
-        <div class="sport-card">
-          <div class="sport-icon">🎾</div>
-          <h3>Tennis</h3>
-          <p>Track tournaments and players.</p>
-        </div>
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
 
-      </div>
-    </section>
+.section-title h2 {
+    font-size: 24px;
+}
 
-    <section class="matches" id="matches">
-      <h2 class="section-title">Upcoming Matches</h2>
+.section-title a {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: bold;
+}
 
-      <div class="match">
-        <span class="team">Manchester FC</span>
-        <span class="time">7:30 PM</span>
-        <span class="team">London United</span>
-      </div>
+/* SCORE CARDS */
 
-      <div class="match">
-        <span class="team">India</span>
-        <span class="time">2:00 PM</span>
-        <span class="team">Australia</span>
-      </div>
+.score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
 
-      <div class="match">
-        <span class="team">Lakers</span>
-        <span class="time">9:00 PM</span>
-        <span class="team">Warriors</span>
-      </div>
+.score-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.04);
+}
 
-    </section>
+.live {
+    color: var(--danger);
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
 
-  </main>
+.live::before {
+    content: "●";
+    margin-right: 5px;
+}
 
-  <footer id="contact">
-    <p>© 2026 Sports Hub | All Rights Reserved</p>
-  </footer>
+.match-title {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 12px;
+}
 
-</body>
-</html>
+.team {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-weight: bold;
+}
+
+.score {
+    font-size: 18px;
+}
+
+.status {
+    background: #eef8f2;
+    color: var(--primary);
+    padding: 8px 10px;
+    border-
+```
