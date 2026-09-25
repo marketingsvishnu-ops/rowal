@@ -1,345 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AllPanel 7 ID</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Hub</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    background:#042b23;
-    color:#fff;
-    overflow-x:auto;
-}
-
-.container{
-    display:flex;
-    min-height:100vh;
-}
-
-.demo{
-    width:70%;
-    background:#111;
-}
-
-iframe{
-    width:100%;
-    height:100vh;
-    border:none;
-}
-
-.right{
-    width:30%;
-    padding:30px 22px;
-    background:linear-gradient(180deg,#008f73,#043d33);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.box{
-    width:100%;
-    background:#07110f;
-    border:1px solid #00e8ad;
-    border-radius:22px;
-    padding:24px 18px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(0,232,173,.35);
-}
-
-.badge{
-    display:inline-block;
-    background:#00e8ad;
-    color:#001f18;
-    padding:10px 22px;
-    border-radius:30px;
-    font-weight:bold;
-    margin-bottom:16px;
-}
-
-h1{
-    color:#00e8ad;
-    font-size:30px;
-    text-transform:uppercase;
-    margin-bottom:12px;
-}
-
-.sub{
-    color:#ddd;
-    line-height:1.6;
-    margin-bottom:18px;
-    font-size:16px;
-}
-
-.process{
-    text-align:left;
-    background:linear-gradient(180deg,#07110f,#06483b);
-    border:1px solid #00e8ad;
-    border-radius:16px;
-    padding:18px;
-    margin:18px 0;
-}
-
-.process h2{
-    color:#00e8ad;
-    font-size:20px;
-    margin-bottom:12px;
-    text-align:center;
-}
-
-.process h3{
-    color:#fff;
-    font-size:18px;
-    margin:16px 0 8px;
-}
-
-.process p,
-.process li{
-    color:#ddd;
-    font-size:15px;
-    line-height:1.6;
-}
-
-.process ol{
-    padding-left:20px;
-}
-
-.manual-whatsapp,
-.signup{
-    display:block;
-    background:#00e8ad;
-    color:#001f18;
-    text-decoration:none;
-    padding:15px;
-    border-radius:14px;
-    font-size:20px;
-    font-weight:bold;
-    text-align:center;
-    box-shadow:0 0 18px rgba(0,232,173,.4);
-}
-
-.manual-whatsapp{
-    margin:14px 0 8px;
-}
-
-.signup{
-    margin-top:16px;
-}
-
-.manual-whatsapp:hover,
-.signup:hover{
-    background:#00c996;
-}
-
-.features{
-    display:grid;
-    gap:12px;
-    margin:22px 0 18px;
-}
-
-.feature{
-    background:linear-gradient(90deg,#092a24,#06483b);
-    border:1px solid #00e8ad;
-    border-radius:14px;
-    padding:14px;
-    font-size:17px;
-    font-weight:bold;
-}
-
-.feature span{
-    color:#00e8ad;
-}
-
-.website-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:18px;
-    font-weight:bold;
-    flex-wrap:wrap;
-}
-
-.website-row a{
-    text-decoration:none;
-    word-break:break-word;
-}
-
-.website,
-.whatsapp-small{
-    color:#00e8ad;
-}
-
-.trust{
-    margin-top:18px;
-    color:#ccc;
-    line-height:1.7;
-}
-
-.footer{
-    margin-top:20px;
-    color:#888;
-    font-size:12px;
-}
-
-/* MOBILE — Laptop jaisa same layout */
-@media(max-width:768px){
-
-    body{
-        overflow-x:auto;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    .container{
-        width:1200px;
-        min-width:1200px;
-        flex-direction:row;
+    body {
+      background: #f4f6f8;
+      color: #222;
     }
 
-    .demo{
-        width:70%;
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .right{
-        width:30%;
-        padding:25px 18px;
+    header h1 {
+      color: #22c55e;
     }
 
-    iframe{
-        height:100vh;
-        min-height:700px;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
     }
 
-    h1{
-        font-size:28px;
+    nav a:hover {
+      color: #22c55e;
     }
 
-    .manual-whatsapp,
-    .signup{
-        font-size:19px;
+    .hero {
+      background: linear-gradient(135deg, #16a34a, #111827);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
     }
-}
-</style>
+
+    .hero h2 {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .container {
+      width: 85%;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 30px;
+    }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .sport-card {
+      background: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .sport-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .sport-icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .matches {
+      margin-top: 50px;
+    }
+
+    .match {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .team {
+      font-weight: bold;
+    }
+
+    .time {
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 8px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      .match {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <header>
+    <h1>⚽ Sports Hub</h1>
 
-    <div class="demo">
-        <iframe src="https://www.allpanel7.com/?code=MAHA1991"></iframe>
-    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#sports">Sports</a>
+      <a href="#matches">Matches</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="right">
+  <section class="hero">
+    <h2>Welcome to Sports Hub</h2>
+    <p>Stay updated with your favorite sports and matches.</p>
+  </section>
 
-        <div class="box">
+  <main class="container">
 
-            <div class="badge">ALLPANEL7</div>
+    <section id="sports">
+      <h2 class="section-title">Popular Sports</h2>
 
-            <h1>Get Your AllPanel7 ID</h1>
+      <div class="sports-grid">
 
-            <p class="sub">
-                Choose the registration method that's most convenient for you and get started with AllPanel 7 today!
-            </p>
-
-            <div class="process">
-
-                <h2>Get Your AllPanel 7 ID – Your Choice!</h2>
-
-                <h3>✅ Manual ID</h3>
-
-                <p>
-                    Click the <strong>"WhatsApp Now"</strong> button and our team will create your ID for you.
-                </p>
-
-                <a class="manual-whatsapp"
-                   href="https://wa.me/+917980303785?text=Hello%20I%20want%20new%20manual%20ID"
-                   target="_blank">
-                    📲 WhatsApp Now
-                </a>
-
-                <h3>✅ Self-Registration</h3>
-
-                <p>
-                    Click the <strong>"Sign Up"</strong> button and follow these simple steps:
-                </p>
-
-                <ol>
-                    <li>Enter your mobile number.</li>
-                    <li>Create your username.</li>
-                    <li>Create your password and confirm it.</li>
-                    <li>The Signup Code is pre-filled as <strong>MAHA1991</strong>.</li>
-                    <li>Click <strong>"Sign Up"</strong> to complete your registration.</li>
-                </ol>
-
-                <a class="signup"
-                   href="https://www.allpanel7.com/?code=MAHA1991"
-                   target="_blank">
-                    📝 Sign Up
-                </a>
-
-            </div>
-
-            <div class="features">
-
-                <div class="feature">
-                    Minimum Deposit:
-                    <span>₹100 Only</span>
-                </div>
-
-                <div class="feature">
-                    Welcome Bonus:
-                    <span>10%</span>
-                </div>
-
-                <div class="feature">
-                    Auto and Manual Service:
-                    <span>Available</span>
-                </div>
-
-                <div class="feature">
-                    Quick Help:
-                    <span>24/7 Support Available</span>
-                </div>
-
-            </div>
-
-            <div class="website-row">
-
-                <a class="website"
-                   href="https://www.allpanel7.com/?code=MAHA1991"
-                   target="_blank">
-                    🌐 www.allpanel7.com/?code=MAHA1991
-                </a>
-
-                <a class="whatsapp-small"
-                   href="https://wa.me/+917980303785"
-                   target="_blank">
-                    💬 WhatsApp
-                </a>
-
-            </div>
-
-            <div class="trust">
-                ✅ Trusted Manual Support<br>
-                ✅ Simple Process<br>
-                ✅ Fast Response
-            </div>
-
-            <div class="footer">
-                18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
-            </div>
-
+        <div class="sport-card">
+          <div class="sport-icon">⚽</div>
+          <h3>Football</h3>
+          <p>Latest football matches and news.</p>
         </div>
 
-    </div>
+        <div class="sport-card">
+          <div class="sport-icon">🏏</div>
+          <h3>Cricket</h3>
+          <p>Scores, teams and upcoming games.</p>
+        </div>
 
-</div>
+        <div class="sport-card">
+          <div class="sport-icon">🏀</div>
+          <h3>Basketball</h3>
+          <p>Follow basketball action worldwide.</p>
+        </div>
+
+        <div class="sport-card">
+          <div class="sport-icon">🎾</div>
+          <h3>Tennis</h3>
+          <p>Track tournaments and players.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="matches" id="matches">
+      <h2 class="section-title">Upcoming Matches</h2>
+
+      <div class="match">
+        <span class="team">Manchester FC</span>
+        <span class="time">7:30 PM</span>
+        <span class="team">London United</span>
+      </div>
+
+      <div class="match">
+        <span class="team">India</span>
+        <span class="time">2:00 PM</span>
+        <span class="team">Australia</span>
+      </div>
+
+      <div class="match">
+        <span class="team">Lakers</span>
+        <span class="time">9:00 PM</span>
+        <span class="team">Warriors</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <p>© 2026 Sports Hub | All Rights Reserved</p>
+  </footer>
 
 </body>
 </html>
